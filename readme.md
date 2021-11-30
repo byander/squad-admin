@@ -1,0 +1,1 @@
+Aplicatvo criado para facilitar a administração do jogo, como envio de regras, aviso aos usuários e votação de mapas.
