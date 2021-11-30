@@ -42,6 +42,8 @@ namespace SquadAdmin.Forms
 
         private void FormRules_Load(object sender, EventArgs e)
         {
+            setToolTips();
+
             string[] rules = loadData.rules;
             for (int i = 0; i < rules.Length; i++)
             {
@@ -49,6 +51,17 @@ namespace SquadAdmin.Forms
                 listBox1.Items.Add(rules[i]);
                 listRules.Add(rules[i]);
             }                       
+        }
+
+        private void setToolTips()
+        {
+            ToolTip toolTip = new ToolTip();
+
+            toolTip.SetToolTip(listBox1, "Clique na regra para copiar o texto.");
+            toolTip.SetToolTip(txtFilter, "Digite para filtrar as regras.");
+            toolTip.SetToolTip(opt1, "Marque esta opção para enviar no Brodcast.");
+            toolTip.SetToolTip(opt2, "Marque esta opção para enviar um aviso ao usuário. É necessário colar o ID do usuário.");
+            toolTip.SetToolTip(txtCommandRule, "Comando para enviar.");
         }
 
         private void txtFilter_TextChanged(object sender, EventArgs e)

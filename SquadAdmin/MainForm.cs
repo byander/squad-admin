@@ -42,10 +42,20 @@ namespace SquadAdmin
                 return;
             }
             
+            setToolTips();
 
             loadData.loadAllData();
 
             button4.PerformClick();
+        }
+
+        private void setToolTips()
+        {
+            ToolTip toolTip = new ToolTip();
+
+            toolTip.SetToolTip(button4, "Enviar mensagens no jogo.");
+            toolTip.SetToolTip(button5, "Enviar sugestões de mapa e modo no jogo.");
+            toolTip.SetToolTip(button6, "Selecionar o próximo layer.");
         }
 
         private void OpenChildForm(Form childForm, object btnSender)

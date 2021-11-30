@@ -24,6 +24,8 @@ namespace SquadAdmin.Forms
 
         private void FormMaps_Load(object sender, EventArgs e)
         {
+            setToolTips();
+
             List<string> mapsNames = loadData.mapsNames;
             for (int i = 0; i < mapsNames.Count; i++)
             {
@@ -35,6 +37,18 @@ namespace SquadAdmin.Forms
             {
                 checkedListBox2.Items.Add(gameModes[i]);
             }
+        }
+
+        private void setToolTips()
+        {
+            ToolTip toolTip = new ToolTip();
+
+            toolTip.SetToolTip(checkedListBox1, "Permitido selecionar no máximo 3 mapas. 1 mapa selecionado significa o vencedor.");
+            toolTip.SetToolTip(checkedListBox2, "Permitido selecionar todos. 1 modo selecionado significa o vencedor.");
+            toolTip.SetToolTip(txtSendMapVote, "Comando para enviar.");
+            toolTip.SetToolTip(button2, "Clique para enviar as sugestões de mapas e/ou enviar o mapa vencedor (quando selecionado apenas 1).");
+            toolTip.SetToolTip(button3, "Clique para enviar se desejam votação de mapa.");
+            toolTip.SetToolTip(button1, "Clique para enviar as sugestões de modo de jogo.");
         }
 
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)

@@ -25,6 +25,8 @@ namespace SquadAdmin.Forms
 
         private void FormLayers_Load(object sender, EventArgs e)
         {
+            setToolTips();
+
             dataTable = loadData.mapLayers;
 
             dgv.DataSource = dataTable;
@@ -35,6 +37,16 @@ namespace SquadAdmin.Forms
                 ListViewItem item = new ListViewItem(mapsNames[i]);
                 cboMaps.Items.Add(item.Text);
             }
+        }
+
+        private void setToolTips()
+        {
+            ToolTip toolTip = new ToolTip();
+
+           
+            toolTip.SetToolTip(cboMaps, "Filtrar o mapa.");
+            toolTip.SetToolTip(txtCommandRule, "Comando para enviar.");
+            toolTip.SetToolTip(dgv, "Clique em qualquer célula da linha de interesse para enviar o layer no comando.");
 
         }
 
