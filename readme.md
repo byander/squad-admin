@@ -2,9 +2,13 @@
 
 Aplicatvo criado em C# para facilitar a administração do jogo, como envio de regras, aviso aos usuários e votação de mapas.
 
+## Download
+
+O download da aplicação (arquivo compactatdo) pode ser feito [aqui](https://github.com/byander/squad-admin/releases/download/v1.0/SquadAdmin.zip), ou ir em releases.
+
 ## Execução
 
-O aplicativo só pode ser executado no sistema operacional Windows. Não precisa instalar, basta fazer o download (Ver em releases), descompactar e executar o aruqivo `SquadAdmin.exe`.  
+O aplicativo só pode ser executado no sistema operacional Windows. Não precisa instalar, basta fazer o download, descompactar e executar o aruqivo `SquadAdmin.exe`.  
 
 * Importante: O aplicativo carrega os dados de uma planilha no formato Excel (.xlsx), localizado do diretório 'Data'. Esta planilha não pode ser movida e/ou renomeada, e os nomes das folhas não podem ser alteradas e/ou excluídas. Porém, pode ser adicionado novas linhas, caso for necessário, como por exemplo, edição e/ou adição de uma nova regra, mapa ou layer.
 
