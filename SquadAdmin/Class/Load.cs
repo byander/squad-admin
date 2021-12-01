@@ -15,19 +15,12 @@ namespace SquadAdmin
         static string currentPath = Directory.GetCurrentDirectory();
         static string pathExcel = Path.Combine(currentPath, "Data", "dados.xlsx");
 
-        public string[] rules = loadRules();
-        public List<string> mapsNames = loadMapsNames();
-        public List<string> gameModes = loadGameMode();
+        public List<string> rules = loadSheetData2("regras");
+        public List<string> mapsNames = loadSheetData2("mapas");
+        public List<string> gameModes = loadSheetData2("gamemode");
+        public DataTable mapLayers = loadSheetData3("layers");
+        public DataTable commands = loadSheetData3("comandos");
 
-        public DataTable mapLayers = loadMapLayers();
-
-        public void loadAllData()
-        {
-            rules = loadRules();
-            mapsNames = loadMapsNames();
-            mapLayers = loadMapLayers();
-            gameModes = loadGameMode();
-        }
 
         private static void getContext()
         {
@@ -43,31 +36,13 @@ namespace SquadAdmin
             return true;
         }
 
-        private static string[] loadRules()
+        private static List<string> loadSheetData2(string sheetName)
         {
             getContext();
 
             using (var package = new ExcelPackage(new FileInfo(pathExcel)))
             {
-                var sheetRules = package.Workbook.Worksheets["regras"];
-                int numRows = sheetRules.Dimension.End.Row;
-
-                string[] rows = new string[numRows];
-                for (int i = 0; i < numRows; i++)
-                {
-                    rows[i] = sheetRules.Cells[i + 1, 1].Text;
-                }
-                return rows;
-            }
-        }
-
-        private static List<string> loadMapsNames()
-        {
-            getContext();
-
-            using (var package = new ExcelPackage(new FileInfo(pathExcel)))
-            {
-                var sheetRules = package.Workbook.Worksheets["mapas"];
+                var sheetRules = package.Workbook.Worksheets[sheetName];
                 int numRows = sheetRules.Dimension.End.Row;
 
                 var rows = new List<string>();
@@ -83,30 +58,7 @@ namespace SquadAdmin
             }
         }
 
-        private static List<string> loadGameMode()
-        {
-            getContext();
-
-            using (var package = new ExcelPackage(new FileInfo(pathExcel)))
-            {
-                var sheetRules = package.Workbook.Worksheets["gamemode"];
-                int numRows = sheetRules.Dimension.End.Row;
-
-                var rows = new List<string>();
-                for (int i = 0; i < numRows; i++)
-                {
-                    if (!String.IsNullOrEmpty(sheetRules.Cells[i + 2, 1].Text))
-                    {
-                        rows.Add(sheetRules.Cells[i + 2, 1].Text);
-                    }
-
-                }
-                return rows;
-            }
-        }
-
-
-        private static DataTable loadMapLayers()
+        private static DataTable loadSheetData3(string nameSheet)
         {
             getContext();
 
@@ -114,7 +66,7 @@ namespace SquadAdmin
             DataTable tbl = new DataTable();
             using (var package = new ExcelPackage(new FileInfo(pathExcel)))
             {
-                var ws = package.Workbook.Worksheets["layers"];
+                var ws = package.Workbook.Worksheets[nameSheet];
                 int numRows = ws.Dimension.End.Row;
 
                 foreach (var firstRowCell in ws.Cells[1, 1, 1, ws.Dimension.End.Column])

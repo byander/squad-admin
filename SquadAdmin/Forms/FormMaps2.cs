@@ -10,42 +10,40 @@ using System.Windows.Forms;
 
 namespace SquadAdmin.Forms
 {
-    public partial class FormMaps : Form
+    public partial class FormMaps2 : Form
     {
-        static Load loadData = new Load();
         string sendCommand;
         string map = "";
         string mode = "";
 
-        public FormMaps()
+        public FormMaps2()
         {
             InitializeComponent();
         }
 
-        private void FormMaps_Load(object sender, EventArgs e)
+        private void FormMaps2_Load(object sender, EventArgs e)
         {
             setToolTips();
 
-            List<string> mapsNames = loadData.mapsNames;
+            List<string> mapsNames = MainForm.loadData.mapsNames;
             for (int i = 0; i < mapsNames.Count; i++)
             {
                 checkedListBox1.Items.Add(mapsNames[i]);
             }
 
-            List<string> gameModes = loadData.gameModes;
+            List<string> gameModes = MainForm.loadData.gameModes;
             for (int i = 0; i < gameModes.Count; i++)
             {
                 checkedListBox2.Items.Add(gameModes[i]);
             }
         }
-
-        private void setToolTips()
+                private void setToolTips()
         {
             ToolTip toolTip = new ToolTip();
 
             toolTip.SetToolTip(checkedListBox1, "Permitido selecionar no máximo 3 mapas. 1 mapa selecionado significa o vencedor.");
             toolTip.SetToolTip(checkedListBox2, "Permitido selecionar todos. 1 modo selecionado significa o vencedor.");
-            toolTip.SetToolTip(txtSendMapVote, "Comando para enviar.");
+            toolTip.SetToolTip(txtCommandRule, "Comando para enviar.");
             toolTip.SetToolTip(button2, "Clique para enviar as sugestões de mapas e/ou enviar o mapa vencedor (quando selecionado apenas 1).");
             toolTip.SetToolTip(button3, "Clique para enviar se desejam votação de mapa.");
             toolTip.SetToolTip(button1, "Clique para enviar as sugestões de modo de jogo.");
@@ -61,12 +59,12 @@ namespace SquadAdmin.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            txtSendMapVote.Text = "";
+            txtCommandRule.Text = "";
 
             List<string> mapSel = new List<string>();
             int count = 0;
             string maps = "";
-            
+
 
             foreach (String s in checkedListBox1.CheckedItems)
             {
@@ -89,7 +87,7 @@ namespace SquadAdmin.Forms
                 sendCommand = "adminbroadcast Vote apenas uma vez:" + maps;
             }
 
-            txtSendMapVote.Text = sendCommand;
+            txtCommandRule.Text = sendCommand;
 
             Clipboard.SetText(sendCommand);
         }
@@ -97,18 +95,18 @@ namespace SquadAdmin.Forms
         private void button3_Click(object sender, EventArgs e)
         {
             sendCommand = "adminbroadcast Sugestões para o próximo mapa?";
-            txtSendMapVote.Text = sendCommand;
+            txtCommandRule.Text = sendCommand;
             Clipboard.SetText(sendCommand);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            txtSendMapVote.Text = "";
+            txtCommandRule.Text = "";
 
             List<string> mapSel = new List<string>();
             int count = 0;
             string modes = "";
-           
+
 
             foreach (String s in checkedListBox2.CheckedItems)
             {
@@ -131,9 +129,11 @@ namespace SquadAdmin.Forms
                 sendCommand = "adminbroadcast Vote apenas uma vez no modo de jogo:" + modes;
             }
 
-            txtSendMapVote.Text = sendCommand;
+            txtCommandRule.Text = sendCommand;
 
             Clipboard.SetText(sendCommand);
         }
+
+        
     }
 }

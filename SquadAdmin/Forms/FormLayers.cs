@@ -15,8 +15,6 @@ namespace SquadAdmin.Forms
     {
         string sendCommand;
         DataTable dataTable;
-        static Load loadData = new Load();
-        List<string> listLayers = new List<string>();
 
         public FormLayers()
         {
@@ -27,11 +25,9 @@ namespace SquadAdmin.Forms
         {
             setToolTips();
 
-            dataTable = loadData.mapLayers;
+            dgv.DataSource = MainForm.loadData.mapLayers;
 
-            dgv.DataSource = dataTable;
-
-            List<string> mapsNames = loadData.mapsNames;
+            List<string> mapsNames = MainForm.loadData.mapsNames;
             for (int i = 0; i < mapsNames.Count; i++)
             {
                 ListViewItem item = new ListViewItem(mapsNames[i]);
@@ -42,8 +38,7 @@ namespace SquadAdmin.Forms
         private void setToolTips()
         {
             ToolTip toolTip = new ToolTip();
-
-           
+                       
             toolTip.SetToolTip(cboMaps, "Filtrar o mapa.");
             toolTip.SetToolTip(txtCommandRule, "Comando para enviar.");
             toolTip.SetToolTip(dgv, "Clique em qualquer célula da linha de interesse para enviar o layer no comando.");
@@ -64,7 +59,6 @@ namespace SquadAdmin.Forms
             string layer = "";
             if (dgv.SelectedCells.Count > 0)
             {
-                //sendCommand = dgv.SelectedCells[0].Value.ToString();
                 DataGridViewRow row = dgv.CurrentCell.OwningRow;
                 layer = row.Cells["Rotation Name"].Value.ToString();
             }

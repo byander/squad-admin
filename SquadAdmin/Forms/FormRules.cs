@@ -13,7 +13,6 @@ namespace SquadAdmin.Forms
     public partial class FormRules : Form
     {
         string sendCommand;
-        static Load loadData = new Load();
         List<string> listRules = new List<string>();
 
         public FormRules()
@@ -24,28 +23,25 @@ namespace SquadAdmin.Forms
 
         private void listBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            txtCommandRule.Text = "";
-            if(opt1.Checked)
-            {
-                sendCommand = "adminbroadcast " + listBox1.Text;
-            } 
-            else if (opt2.Checked)
-            {
-                sendCommand = "adminwarn PASTE_ID " + listBox1.Text;
-            }
+            setMessage();
+        }
 
-           
-            txtCommandRule.Text = sendCommand;
+        private void opt1_CheckedChanged(object sender, EventArgs e)
+        {
+            setMessage();
+        }
 
-            Clipboard.SetText(sendCommand);
+        private void opt2_CheckedChanged(object sender, EventArgs e)
+        {
+            setMessage();
         }
 
         private void FormRules_Load(object sender, EventArgs e)
         {
             setToolTips();
 
-            string[] rules = loadData.rules;
-            for (int i = 0; i < rules.Length; i++)
+            List<string> rules = MainForm.loadData.rules;
+            for (int i = 0; i < rules.Count; i++)
             {
                 //ListViewItem item = new ListViewItem(rules[i]);
                 listBox1.Items.Add(rules[i]);
@@ -86,5 +82,23 @@ namespace SquadAdmin.Forms
                 }
             }
         }
+
+        private void setMessage()
+        {
+            txtCommandRule.Text = "";
+            if (opt1.Checked)
+            {
+                sendCommand = "adminbroadcast " + listBox1.Text;
+            }
+            else if (opt2.Checked)
+            {
+                sendCommand = "adminwarn JOGADOR " + listBox1.Text;
+            }
+            txtCommandRule.Text = sendCommand;
+
+            Clipboard.SetText(sendCommand);
+        }
+
+        
     }
 }

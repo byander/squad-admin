@@ -112,17 +112,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Load.cs" />
+    <Compile Include="Forms\FormCommands.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCommands.Designer.cs">
+      <DependentUpon>FormCommands.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormLayers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormLayers.Designer.cs">
       <DependentUpon>FormLayers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormMaps.cs">
+    <Compile Include="Forms\FormMaps2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormMaps.Designer.cs">
-      <DependentUpon>FormMaps.cs</DependentUpon>
+    <Compile Include="Forms\FormMaps2.Designer.cs">
+      <DependentUpon>FormMaps2.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormRules.cs">
       <SubType>Form</SubType>
@@ -146,11 +152,14 @@
     <None Include="SquadAdmin_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\FormCommands.resx">
+      <DependentUpon>FormCommands.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormLayers.resx">
       <DependentUpon>FormLayers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormMaps.resx">
-      <DependentUpon>FormMaps.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormMaps2.resx">
+      <DependentUpon>FormMaps2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormRules.resx">
       <DependentUpon>FormRules.cs</DependentUpon>

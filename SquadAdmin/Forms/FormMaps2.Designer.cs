@@ -1,6 +1,6 @@
 ﻿namespace SquadAdmin.Forms
 {
-    partial class FormMaps
+    partial class FormMaps2
     {
         /// <summary>
         /// Required designer variable.
@@ -28,44 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.txtSendMapVote = new System.Windows.Forms.TextBox();
+            this.txtCommandRule = new System.Windows.Forms.TextBox();
             this.lblCommand = new System.Windows.Forms.Label();
             this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.checkedListBox1.CheckOnClick = true;
-            this.checkedListBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkedListBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkedListBox1.ForeColor = System.Drawing.Color.White;
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(0, 120);
-            this.checkedListBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(390, 330);
-            this.checkedListBox1.TabIndex = 7;
-            this.checkedListBox1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox1_ItemCheck);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.panel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 70);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 50);
-            this.panel2.TabIndex = 10;
+            this.panel2.TabIndex = 17;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 50);
+            this.panel1.TabIndex = 11;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(101)))), ((int)(((byte)(242)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(341, 6);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(155, 40);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Sugerir modo de jogo";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
@@ -99,18 +111,17 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // txtSendMapVote
+            // txtCommandRule
             // 
-            this.txtSendMapVote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.txtSendMapVote.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSendMapVote.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtSendMapVote.ForeColor = System.Drawing.Color.White;
-            this.txtSendMapVote.Location = new System.Drawing.Point(0, 30);
-            this.txtSendMapVote.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtSendMapVote.Multiline = true;
-            this.txtSendMapVote.Name = "txtSendMapVote";
-            this.txtSendMapVote.Size = new System.Drawing.Size(800, 40);
-            this.txtSendMapVote.TabIndex = 9;
+            this.txtCommandRule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.txtCommandRule.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCommandRule.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCommandRule.ForeColor = System.Drawing.Color.White;
+            this.txtCommandRule.Location = new System.Drawing.Point(0, 30);
+            this.txtCommandRule.Multiline = true;
+            this.txtCommandRule.Name = "txtCommandRule";
+            this.txtCommandRule.Size = new System.Drawing.Size(800, 40);
+            this.txtCommandRule.TabIndex = 21;
             // 
             // lblCommand
             // 
@@ -122,7 +133,7 @@
             this.lblCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCommand.Name = "lblCommand";
             this.lblCommand.Size = new System.Drawing.Size(800, 30);
-            this.lblCommand.TabIndex = 8;
+            this.lblCommand.TabIndex = 20;
             this.lblCommand.Text = "Comando:";
             this.lblCommand.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -132,62 +143,61 @@
             this.checkedListBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.checkedListBox2.CheckOnClick = true;
             this.checkedListBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkedListBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkedListBox2.Dock = System.Windows.Forms.DockStyle.Left;
             this.checkedListBox2.ForeColor = System.Drawing.Color.White;
             this.checkedListBox2.FormattingEnabled = true;
             this.checkedListBox2.Location = new System.Drawing.Point(390, 120);
             this.checkedListBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.checkedListBox2.Name = "checkedListBox2";
             this.checkedListBox2.Size = new System.Drawing.Size(410, 330);
-            this.checkedListBox2.TabIndex = 11;
+            this.checkedListBox2.TabIndex = 23;
             // 
-            // button1
+            // checkedListBox1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(101)))), ((int)(((byte)(242)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(341, 6);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 40);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Sugerir modo de jogo";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.checkedListBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.checkedListBox1.CheckOnClick = true;
+            this.checkedListBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkedListBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.checkedListBox1.ForeColor = System.Drawing.Color.White;
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(0, 120);
+            this.checkedListBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(390, 330);
+            this.checkedListBox1.TabIndex = 22;
+            this.checkedListBox1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox1_ItemCheck);
             // 
-            // FormMaps
+            // FormMaps2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.checkedListBox2);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.txtSendMapVote);
+            this.Controls.Add(this.txtCommandRule);
             this.Controls.Add(this.lblCommand);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "FormMaps";
-            this.Text = "Sugestão de mapas";
-            this.Load += new System.EventHandler(this.FormMaps_Load);
+            this.Name = "FormMaps2";
+            this.Text = "Mapas";
+            this.Load += new System.EventHandler(this.FormMaps2_Load);
             this.panel2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox txtCommandRule;
+        private System.Windows.Forms.Label lblCommand;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox txtSendMapVote;
-        private System.Windows.Forms.Label lblCommand;
         private System.Windows.Forms.CheckedListBox checkedListBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
     }
 }

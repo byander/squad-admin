@@ -24,7 +24,7 @@ namespace SquadAdmin
         private Button currentButton;
         private Form activeForm;
 
-        static Load loadData = new Load();
+        public static Load loadData = new Load();
 
         public MainForm()
         {
@@ -35,7 +35,6 @@ namespace SquadAdmin
         }
         void MainFormLoad(object sender, EventArgs e)
         {
-            //if (!File.Exists(pathExcel))
             if (loadData.checkSheet() == false)
             {
                 MessageBox.Show("Planilha contendo os dados não existe");
@@ -43,8 +42,6 @@ namespace SquadAdmin
             }
             
             setToolTips();
-
-            loadData.loadAllData();
 
             button4.PerformClick();
         }
@@ -116,8 +113,12 @@ namespace SquadAdmin
 
         private void button5_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.FormMaps(), sender);
+            OpenChildForm(new Forms.FormMaps2(), sender);
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Forms.FormCommands(), sender);
+        }
     }
 }

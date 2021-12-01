@@ -47,6 +47,7 @@ namespace SquadAdmin
             this.panelDeskop = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -56,6 +57,7 @@ namespace SquadAdmin
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.panelMenu.Controls.Add(this.button1);
             this.panelMenu.Controls.Add(this.button6);
             this.panelMenu.Controls.Add(this.button5);
             this.panelMenu.Controls.Add(this.button4);
@@ -179,6 +181,22 @@ namespace SquadAdmin
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "label1";
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.button1.Location = new System.Drawing.Point(0, 240);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(188, 60);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Comandos";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -213,5 +231,6 @@ namespace SquadAdmin
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }
