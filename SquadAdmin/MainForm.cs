@@ -24,7 +24,7 @@ namespace SquadAdmin
         private Button currentButton;
         private Form activeForm;
 
-        public static Load loadData = new Load();
+        public static Load loadData = new Load();        
 
         public MainForm()
         {

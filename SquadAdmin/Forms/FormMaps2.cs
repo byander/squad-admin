@@ -36,6 +36,8 @@ namespace SquadAdmin.Forms
             {
                 checkedListBox2.Items.Add(gameModes[i]);
             }
+
+
         }
                 private void setToolTips()
         {

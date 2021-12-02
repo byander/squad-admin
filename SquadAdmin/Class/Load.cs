@@ -12,6 +12,8 @@ namespace SquadAdmin
 {
     public class Load
     {
+        public static string currentLayer = "";
+
         static string currentPath = Directory.GetCurrentDirectory();
         static string pathExcel = Path.Combine(currentPath, "Data", "dados.xlsx");
 
@@ -20,7 +22,6 @@ namespace SquadAdmin
         public List<string> gameModes = loadSheetData2("gamemode");
         public DataTable mapLayers = loadSheetData3("layers");
         public DataTable commands = loadSheetData3("comandos");
-
 
         private static void getContext()
         {

@@ -14,6 +14,7 @@ namespace SquadAdmin.Forms
     public partial class FormLayers : Form
     {
         string sendCommand;
+        string currentLayer = "";
         DataTable dataTable;
 
         public FormLayers()
@@ -33,6 +34,12 @@ namespace SquadAdmin.Forms
                 ListViewItem item = new ListViewItem(mapsNames[i]);
                 cboMaps.Items.Add(item.Text);
             }
+
+            dataTable = MainForm.loadData.mapLayers;
+
+            currentLayer = SquadAdmin.Load.currentLayer;
+
+            cboMaps.Text = currentLayer;
         }
 
         private void setToolTips()
@@ -52,6 +59,8 @@ namespace SquadAdmin.Forms
 
             dataTable.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", filterMap, selMap);
 
+            currentLayer = selMap;
+            SquadAdmin.Load.currentLayer = currentLayer;
         }
 
         private void dgv_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
