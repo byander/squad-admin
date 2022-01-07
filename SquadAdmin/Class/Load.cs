@@ -1,4 +1,4 @@
-﻿using OfficeOpenXml;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,11 +13,17 @@ namespace SquadAdmin
     public class Load
     {
         public static string currentLayer = "";
+        public static string lastCommandSended = "";
+        public static string lastRuleSended = "";
+        public static string pastedText = "";
+        public static string steamID = "SteamID";
+        public static string filterName = "";
 
         static string currentPath = Directory.GetCurrentDirectory();
         static string pathExcel = Path.Combine(currentPath, "Data", "dados.xlsx");
 
         public List<string> rules = loadSheetData2("regras");
+        public List<string> messages = loadSheetData2("avisos");
         public List<string> mapsNames = loadSheetData2("mapas");
         public List<string> gameModes = loadSheetData2("gamemode");
         public DataTable mapLayers = loadSheetData3("layers");

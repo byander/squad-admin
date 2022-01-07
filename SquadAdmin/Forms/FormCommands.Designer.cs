@@ -33,6 +33,7 @@
             this.opt2 = new System.Windows.Forms.RadioButton();
             this.opt1 = new System.Windows.Forms.RadioButton();
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,6 +48,7 @@
             this.txtCommandRule.Name = "txtCommandRule";
             this.txtCommandRule.Size = new System.Drawing.Size(800, 40);
             this.txtCommandRule.TabIndex = 16;
+            this.txtCommandRule.TextChanged += new System.EventHandler(this.txtCommandRule_TextChanged);
             // 
             // lblCommand
             // 
@@ -109,12 +111,29 @@
             this.dgv.TabIndex = 21;
             this.dgv.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_CellMouseClick);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(101)))), ((int)(((byte)(242)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(103, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 25);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Usar ID Steam";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormCommands
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.txtCommandRule);
             this.Controls.Add(this.lblCommand);
@@ -135,5 +154,6 @@
         private System.Windows.Forms.RadioButton opt2;
         private System.Windows.Forms.RadioButton opt1;
         private System.Windows.Forms.DataGridView dgv;
+        private System.Windows.Forms.Button button1;
     }
 }

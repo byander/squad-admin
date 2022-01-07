@@ -1,6 +1,6 @@
-﻿namespace SquadAdmin.Forms
+namespace SquadAdmin.Forms
 {
-    partial class FormRules
+    partial class FormBroadcast
     {
         /// <summary>
         /// Required designer variable.
@@ -33,10 +33,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFilter = new System.Windows.Forms.TextBox();
-            this.opt1 = new System.Windows.Forms.RadioButton();
             this.txtCommandRule = new System.Windows.Forms.TextBox();
             this.lblCommand = new System.Windows.Forms.Label();
-            this.opt2 = new System.Windows.Forms.RadioButton();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,23 +100,6 @@
             this.txtFilter.TabIndex = 11;
             this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
             // 
-            // opt1
-            // 
-            this.opt1.AutoSize = true;
-            this.opt1.Checked = true;
-            this.opt1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.opt1.FlatAppearance.BorderSize = 0;
-            this.opt1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.opt1.ForeColor = System.Drawing.Color.White;
-            this.opt1.Location = new System.Drawing.Point(210, 5);
-            this.opt1.Name = "opt1";
-            this.opt1.Size = new System.Drawing.Size(73, 19);
-            this.opt1.TabIndex = 13;
-            this.opt1.TabStop = true;
-            this.opt1.Text = "Brodcast";
-            this.opt1.UseVisualStyleBackColor = true;
-            this.opt1.CheckedChanged += new System.EventHandler(this.opt1_CheckedChanged);
-            // 
             // txtCommandRule
             // 
             this.txtCommandRule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
@@ -146,35 +127,19 @@
             this.lblCommand.Text = "Comando:";
             this.lblCommand.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // opt2
-            // 
-            this.opt2.AutoSize = true;
-            this.opt2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.opt2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.opt2.ForeColor = System.Drawing.Color.White;
-            this.opt2.Location = new System.Drawing.Point(309, 5);
-            this.opt2.Name = "opt2";
-            this.opt2.Size = new System.Drawing.Size(143, 19);
-            this.opt2.TabIndex = 16;
-            this.opt2.Text = "Warning para usuário";
-            this.opt2.UseVisualStyleBackColor = true;
-            this.opt2.CheckedChanged += new System.EventHandler(this.opt2_CheckedChanged);
-            // 
-            // FormRules
+            // FormBroadcast
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.opt2);
-            this.Controls.Add(this.opt1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.txtCommandRule);
             this.Controls.Add(this.lblCommand);
-            this.Name = "FormRules";
-            this.Text = "Informar sobre as Regras";
-            this.Load += new System.EventHandler(this.FormRules_Load);
+            this.Name = "FormBroadcast";
+            this.Text = "Avisos gerais no Broadcast";
+            this.Load += new System.EventHandler(this.FormBroadcast_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -189,9 +154,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtFilter;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton opt1;
         private System.Windows.Forms.TextBox txtCommandRule;
         private System.Windows.Forms.Label lblCommand;
-        private System.Windows.Forms.RadioButton opt2;
     }
 }

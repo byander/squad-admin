@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Created by SharpDevelop.
  * User: Ander_Desktop
  * Date: 26/11/2021
@@ -24,7 +24,7 @@ namespace SquadAdmin
         private Button currentButton;
         private Form activeForm;
 
-        public static Load loadData = new Load();        
+        public static Load loadData = new Load();
 
         public MainForm()
         {
@@ -40,7 +40,7 @@ namespace SquadAdmin
                 MessageBox.Show("Planilha contendo os dados não existe");
                 return;
             }
-            
+
             setToolTips();
 
             button4.PerformClick();
@@ -119,6 +119,16 @@ namespace SquadAdmin
         private void button1_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Forms.FormCommands(), sender);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Forms.FormRcon(), sender);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Forms.FormBroadcast(), sender);
         }
     }
 }

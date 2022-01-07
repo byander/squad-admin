@@ -10,26 +10,26 @@ using System.Windows.Forms;
 
 namespace SquadAdmin.Forms
 {
-    public partial class FormRules : Form
+    public partial class FormBroadcast : Form
     {
         string sendCommand;
         List<string> listRules = new List<string>();
 
-        public FormRules()
+        public FormBroadcast()
         {
             InitializeComponent();
             listRules.Clear();            
         }
 
-        private void FormRules_Load(object sender, EventArgs e)
+        private void FormBroadcast_Load(object sender, EventArgs e)
         {
             setToolTips();
 
-            List<string> rules = MainForm.loadData.rules;
-            for (int i = 0; i < rules.Count; i++)
+            List<string> messages = MainForm.loadData.messages;
+            for (int i = 0; i < messages.Count; i++)
             {
-                listBox1.Items.Add(rules[i]);
-                listRules.Add(rules[i]);
+                listBox1.Items.Add(messages[i]);
+                listRules.Add(messages[i]);
             }
                        
             txtCommandRule.Text = SquadAdmin.Load.lastRuleSended;
@@ -61,8 +61,6 @@ namespace SquadAdmin.Forms
 
             toolTip.SetToolTip(listBox1, "Clique na regra para copiar o texto.");
             toolTip.SetToolTip(txtFilter, "Digite para filtrar as regras.");
-            toolTip.SetToolTip(opt1, "Marque esta opção para enviar no Brodcast.");
-            toolTip.SetToolTip(opt2, "Marque esta opção para enviar um aviso ao usuário. É necessário colar o ID do usuário.");
             toolTip.SetToolTip(txtCommandRule, "Comando para enviar.");
         }
 
@@ -92,15 +90,9 @@ namespace SquadAdmin.Forms
         private void setMessage()
         {
             txtCommandRule.Text = "";
-            if (opt1.Checked)
-            {
-                sendCommand = "adminbroadcast " + listBox1.Text;
-            }
-            else if (opt2.Checked)
-            {
-                sendCommand = "adminwarn " + SquadAdmin.Load.steamID + " " + listBox1.Text;
-            }
-           
+          
+            sendCommand = "adminbroadcast " + listBox1.Text;
+                  
             txtCommandRule.Text = sendCommand;
 
             Clipboard.SetText(sendCommand);
