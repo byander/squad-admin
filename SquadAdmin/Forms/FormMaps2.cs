@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,7 +39,7 @@ namespace SquadAdmin.Forms
 
 
         }
-                private void setToolTips()
+        private void setToolTips()
         {
             ToolTip toolTip = new ToolTip();
 
@@ -59,6 +59,11 @@ namespace SquadAdmin.Forms
             }
         }
 
+        /// <summary>
+        /// Botão iniciar votemap
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             txtCommandRule.Text = "";
@@ -86,7 +91,7 @@ namespace SquadAdmin.Forms
             }
             else
             {
-                sendCommand = "adminbroadcast Vote apenas uma vez:" + maps;
+                sendCommand = "adminbroadcast Vote apenas uma vez: " + maps;
             }
 
             txtCommandRule.Text = sendCommand;
@@ -94,6 +99,11 @@ namespace SquadAdmin.Forms
             Clipboard.SetText(sendCommand);
         }
 
+        /// <summary>
+        /// Botão para sugerir mapas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
             sendCommand = "adminbroadcast Sugestões para o próximo mapa?";
@@ -101,6 +111,11 @@ namespace SquadAdmin.Forms
             Clipboard.SetText(sendCommand);
         }
 
+        /// <summary>
+        /// Botão para sugerir modos de jogo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             txtCommandRule.Text = "";
@@ -116,6 +131,19 @@ namespace SquadAdmin.Forms
                 count++;
                 mapSel.Add(count + ") " + s);
             }
+
+            if (checkedListBox1.CheckedItems.Count == 1)
+            {
+                foreach (String s in checkedListBox1.CheckedItems)
+                {
+                    map = s;
+                }
+            }
+            else
+            {
+                map = "";
+            }
+
 
             foreach (String s in mapSel)
             {
@@ -136,6 +164,6 @@ namespace SquadAdmin.Forms
             Clipboard.SetText(sendCommand);
         }
 
-        
+
     }
 }
