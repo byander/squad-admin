@@ -40,10 +40,23 @@ namespace SquadAdmin
                 MessageBox.Show("Planilha contendo os dados não existe");
                 return;
             }
+            loadSettings();
 
             setToolTips();
 
             button4.PerformClick();
+        }
+
+        void loadSettings()
+        {
+            int location_x = Properties.Settings.Default.location_x;
+            int location_y = Properties.Settings.Default.location_y;
+            int width = Properties.Settings.Default.width;
+            int height = Properties.Settings.Default.height;
+
+            this.Location = new Point(location_x, location_y);
+            this.Height = height;
+            this.Width = width;
         }
 
         private void setToolTips()
@@ -129,6 +142,16 @@ namespace SquadAdmin
         private void button3_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Forms.FormBroadcast(), sender);
-        }               
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.location_x = this.Location.X;
+            Properties.Settings.Default.location_y = this.Location.Y;
+            Properties.Settings.Default.width = this.Width;
+            Properties.Settings.Default.height = this.Height;
+
+            Properties.Settings.Default.Save();
+        }
     }
 }

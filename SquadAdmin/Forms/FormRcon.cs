@@ -14,6 +14,11 @@ namespace SquadAdmin.Forms
     public partial class FormRcon : Form
     {
         List<string> listPlayers = new List<string>();
+        string steamID = "";
+        string command = "";
+        string allCommand = "";
+        string timeCommand = "";
+        bool flagLoaded = false;
 
         public FormRcon()
         {
@@ -25,14 +30,28 @@ namespace SquadAdmin.Forms
             {
                 fillListBox(SquadAdmin.Load.pastedText);
             }
-            txtCommandRule.Text = SquadAdmin.Load.steamID;
-            txtFilter.Text = SquadAdmin.Load.filterName ;
-        }
+            txtCommandRule.Text = "AdminKick ";
+            txtFilter.Text = SquadAdmin.Load.filterName;
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText(SquadAdmin.Load.steamID);
-        }
+            List<string> msgReasons = MainForm.loadData.msgReasons;
+            for (int i = 0; i < msgReasons.Count; i++)
+            {
+                ListViewItem item = new ListViewItem(msgReasons[i]);
+                cboReason.Items.Add(item.Text);
+            }
+
+            List<string> banLength = new List<string>();
+            banLength.Add("Hora");
+            banLength.Add("Dia");
+            banLength.Add("Mês");
+            foreach (string s in banLength)
+            {
+                cboTime.Items.Add(s);
+            }
+            cboTime.SelectedIndex = 1;
+
+            flagLoaded = true;
+        }            
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -84,9 +103,13 @@ namespace SquadAdmin.Forms
             SquadAdmin.Load.filterName = txtFilter.Text;
         }
 
+        /// <summary>
+        /// Evento ao clicar na lista
+        /// </summary>
         private void listBox1_MouseClick(object sender, MouseEventArgs e)
         {
             splitText();
+            createAllCommand();
         }
 
         private void splitText()
@@ -94,16 +117,130 @@ namespace SquadAdmin.Forms
             try
             {
                 string steamIDFull = Regex.Split(listBox1.Text, @"\|")[1];
-                string steamID = Regex.Split(steamIDFull, @"\:")[1].Trim();
 
-                txtCommandRule.Text = steamID;
+                steamID = Regex.Split(steamIDFull, @"\:")[1].Trim();
+
                 SquadAdmin.Load.steamID = steamID;
+
             }
             catch (Exception ex)
             {
             }
         }
 
+        /// <summary>
+        /// Kick
+        /// </summary>
+        private void opt1_CheckedChanged(object sender, EventArgs e)
+        {
+            enableDisableFiedls();
+            createAllCommand();
+        }
+
+        /// <summary>
+        /// Banir
+        /// </summary>
+        private void opt2_CheckedChanged(object sender, EventArgs e)
+        {
+            enableDisableFiedls();
+            createAllCommand();
+        }
+
+        private void enableDisableFiedls()
+        {
+            if (opt1.Checked)
+            {
+                numLength.Enabled = false;
+                cboTime.Enabled = false;
+
+            }
+            if (opt2.Checked)
+            {
+                numLength.Enabled = true;
+                cboTime.Enabled = true;
+            }
+        }
+
+        private void numUD_ValueChanged(object sender, EventArgs e)
+        {
+            createAllCommand();
+        }
+
+        /// <summary>
+        /// Selecionar o tempo
+        /// </summary>
+        private void cboTime_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (flagLoaded == false)
+            {
+                return;
+            }
+            createAllCommand();
+        }
         
+
+        /// <summary>
+        /// Motivo do kick/ban
+        /// </summary>
+        private void cboReason_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            createAllCommand();
+        }
+
+        private void createAllCommand()
+        {
+            if (opt1.Checked)
+            {
+                allCommand = "AdminKick " + steamID + " " + cboReason.Text;
+            }
+            if (opt2.Checked)
+            {
+                string banLength = setBanLength();
+                allCommand = "AdminBan " + steamID + " " + banLength + " " + cboReason.Text;
+            }
+            txtCommandRule.Text = allCommand;
+        }
+
+        private string setBanLength()
+        {
+            string banLength = "";
+
+            if (numLength.Value == 0)
+            {
+                banLength = numLength.Value.ToString();
+            }
+            else
+            {
+                banLength = numLength.Value.ToString() + getValueFromCombo(cboTime);
+            }                        
+
+            return banLength;
+        }
+
+
+        /// <summary>
+        /// Converter valor do combo para unidade válida de comando
+        /// </summary>
+        private string getValueFromCombo(object sender)
+        {
+            string val = "";
+            ComboBox combo = (ComboBox)sender;
+            string text = combo.Text;
+
+            switch (text)
+            {
+                case "Hora":
+                    val = "H";
+                    break;
+                case "Dia":
+                    val = "D";
+                    break;
+                case "Mês":
+                    val = "M";
+                    break;
+            }
+
+            return val;
+        }
     }
 }

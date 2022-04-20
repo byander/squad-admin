@@ -28,7 +28,8 @@ namespace SquadAdmin
         public List<string> gameModes = loadSheetData2("gamemode");
         public DataTable mapLayers = loadSheetData3("layers");
         public DataTable commands = loadSheetData3("comandos");
-
+        public List<string> msgReasons = loadSheetData2("motivos_kick_ban");
+        
         private static void getContext()
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;

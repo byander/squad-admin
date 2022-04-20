@@ -53,6 +53,8 @@ namespace SquadAdmin.Forms
 
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            Console.WriteLine(checkedListBox1.CheckedItems.Count);          
+
             if (e.NewValue == CheckState.Checked && checkedListBox1.CheckedItems.Count >= 3)
             {
                 e.NewValue = CheckState.Unchecked;
