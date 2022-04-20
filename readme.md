@@ -59,7 +59,7 @@ Enviar comando para configurar o próximo layer, bastando clicar em qualquer loc
 
 Lista os comandos mais comuns para os administradores e a descrição do mesmo.
 
-![Mapas](https://github.com/byander/squad-admin/blob/master/Figuras/comandos.JPG?raw=true)
+![Comandos](https://github.com/byander/squad-admin/blob/master/Figuras/comandos.jpg?raw=true)
 
 ### Rcon
 
@@ -74,7 +74,7 @@ Nesta tela é para facilitar o kick/ban em um jogador através do ID Steam. Para
 
 Será apresentado todos os jogadores do conteúdo copiado. É possível filtrar por parte do nome para buscar mais rapidamente. Basta clicar sob o nome e selecionar as opções "kick" ou "Banir". Indiferente da opção, é recomendado selecionar o motivo.
 
-![Mapas](https://github.com/byander/squad-admin/blob/master/Figuras/rcon.JPG?raw=true)
+![Rcon](https://github.com/byander/squad-admin/blob/master/Figuras/rcon.jpg?raw=true)
 
 ### Avisos
 
@@ -82,4 +82,4 @@ Será apresentado todos os jogadores do conteúdo copiado. É possível filtrar 
 
 Enviar mensagens ao Broadcast para todos os usuários.
 
-![Mapas](https://github.com/byander/squad-admin/blob/master/Figuras/avisos.JPG?raw=true)
+![Avisos](https://github.com/byander/squad-admin/blob/master/Figuras/avisos.jpg?raw=true)
