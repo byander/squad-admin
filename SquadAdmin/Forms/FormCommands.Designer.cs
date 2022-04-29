@@ -104,6 +104,7 @@
             this.dgv.Location = new System.Drawing.Point(0, 70);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
+            this.dgv.ReadOnly = true;
             this.dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgv.RowHeadersVisible = false;
             this.dgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;

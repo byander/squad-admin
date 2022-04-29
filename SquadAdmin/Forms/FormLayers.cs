@@ -54,7 +54,7 @@ namespace SquadAdmin.Forms
 
         private void cboMaps_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selMap = cboMaps.Text;
+            string selMap = cboMaps.Text.Replace("'", "''");
             string filterMap = "Map";
 
             dataTable.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", filterMap, selMap);
