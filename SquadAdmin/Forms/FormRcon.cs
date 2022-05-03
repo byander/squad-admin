@@ -230,13 +230,13 @@ namespace SquadAdmin.Forms
             switch (text)
             {
                 case "Hora":
-                    val = "H";
+                    val = "h";
                     break;
                 case "Dia":
-                    val = "D";
+                    val = "d";
                     break;
                 case "Mês":
-                    val = "M";
+                    val = "m";
                     break;
             }
 
