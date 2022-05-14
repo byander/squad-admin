@@ -12,6 +12,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.InteropServices;
+using Hotkeys;
 
 namespace SquadAdmin
 {
@@ -20,11 +21,14 @@ namespace SquadAdmin
     /// </summary>
     public partial class MainForm : Form
     {
+        private Hotkeys.GlobalHotkey ghk;
+        private bool onTop = false;
 
         private Button currentButton;
         private Form activeForm;
 
         public static Load loadData = new Load();
+
 
         public MainForm()
         {
@@ -32,6 +36,8 @@ namespace SquadAdmin
             // The InitializeComponent() call is required for Windows Forms designer support.
             //
             InitializeComponent();
+            ghk = new Hotkeys.GlobalHotkey(Constants.SHIFT, Keys.D1, this);
+ 
         }
         void MainFormLoad(object sender, EventArgs e)
         {
@@ -45,6 +51,38 @@ namespace SquadAdmin
             setToolTips();
 
             button4.PerformClick();
+
+            if (ghk.Register())
+            {
+               
+            }
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == Hotkeys.Constants.WM_HOTKEY_MSG_ID)
+            {
+                HandleHotkey();
+            }                
+            base.WndProc(ref m);
+        }
+
+        private void HandleHotkey()
+        {
+            if (onTop == false)
+            {
+                this.TopMost = true;
+                this.BringToFront();
+                this.Opacity = 0.7;
+                onTop = true;                
+            }
+            else
+            {
+                this.TopMost = false;
+                this.Opacity = 1;
+                onTop = false;
+                this.SendToBack();
+            }            
         }
 
         void loadSettings()
@@ -152,6 +190,11 @@ namespace SquadAdmin
             Properties.Settings.Default.height = this.Height;
 
             Properties.Settings.Default.Save();
+
+            if (!ghk.Unregiser())
+            {
+            }
+            
         }
     }
 }

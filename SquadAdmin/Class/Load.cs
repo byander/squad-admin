@@ -15,6 +15,7 @@ namespace SquadAdmin
         public static string currentLayer = "";
         public static string lastCommandSended = "";
         public static string lastRuleSended = "";
+        public static string lastLayerSended = "";
         public static string pastedText = "";
         public static string steamID = "SteamID";
         public static string filterName = "";

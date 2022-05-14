@@ -111,6 +111,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hotkey\Constants.cs" />
     <Compile Include="Class\Load.cs" />
     <Compile Include="Forms\FormCommands.cs">
       <SubType>Form</SubType>
@@ -148,6 +149,7 @@
     <Compile Include="Forms\FormRules.Designer.cs">
       <DependentUpon>FormRules.cs</DependentUpon>
     </Compile>
+    <Compile Include="Hotkey\GlobalHotkeys.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

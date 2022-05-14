@@ -37,9 +37,11 @@ namespace SquadAdmin.Forms
 
             dataTable = MainForm.loadData.mapLayers;
 
-            currentLayer = SquadAdmin.Load.currentLayer;
+            currentLayer = SquadAdmin.Load.currentLayer.Replace("''", "'");
 
             cboMaps.Text = currentLayer;
+
+            txtCommandRule.Text = SquadAdmin.Load.lastLayerSended;
         }
 
         private void setToolTips()
@@ -74,6 +76,7 @@ namespace SquadAdmin.Forms
 
             sendCommand = "AdminSetNextLayer " + layer;
             txtCommandRule.Text = sendCommand;
+            SquadAdmin.Load.lastLayerSended = sendCommand;
 
             Clipboard.SetText(sendCommand);
 
