@@ -111,6 +111,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FormHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormHelp.Designer.cs">
+      <DependentUpon>FormHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Hotkey\Constants.cs" />
     <Compile Include="Class\Load.cs" />
     <Compile Include="Forms\FormCommands.cs">
@@ -177,6 +183,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\FormCommands.resx">
       <DependentUpon>FormCommands.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormHelp.resx">
+      <DependentUpon>FormHelp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormLayers.resx">
       <DependentUpon>FormLayers.cs</DependentUpon>

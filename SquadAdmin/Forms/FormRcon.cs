@@ -15,9 +15,7 @@ namespace SquadAdmin.Forms
     {
         List<string> listPlayers = new List<string>();
         string steamID = "";
-        string command = "";
         string allCommand = "";
-        string timeCommand = "";
         bool flagLoaded = false;
 
         public FormRcon()

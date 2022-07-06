@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Runtime.InteropServices;
 using Hotkeys;
+using System.Reflection;
 
 namespace SquadAdmin
 {
@@ -32,15 +33,17 @@ namespace SquadAdmin
 
         public MainForm()
         {
-            //
-            // The InitializeComponent() call is required for Windows Forms designer support.
-            //
             InitializeComponent();
-            ghk = new Hotkeys.GlobalHotkey(Constants.SHIFT, Keys.D1, this);
- 
+
+            //Configuração do atalho
+            ghk = new Hotkeys.GlobalHotkey(Constants.ALT, Keys.V, this);
+
         }
         void MainFormLoad(object sender, EventArgs e)
         {
+            Version version = Assembly.GetExecutingAssembly().GetName().Version;
+
+            this.Text = "Squad Admin - v" + version.Major + "." + version.Minor;
             if (loadData.checkSheet() == false)
             {
                 MessageBox.Show("Planilha contendo os dados não existe");
@@ -54,7 +57,7 @@ namespace SquadAdmin
 
             if (ghk.Register())
             {
-               
+
             }
         }
 
@@ -63,7 +66,7 @@ namespace SquadAdmin
             if (m.Msg == Hotkeys.Constants.WM_HOTKEY_MSG_ID)
             {
                 HandleHotkey();
-            }                
+            }
             base.WndProc(ref m);
         }
 
@@ -72,9 +75,11 @@ namespace SquadAdmin
             if (onTop == false)
             {
                 this.TopMost = true;
-                this.BringToFront();
                 this.Opacity = 0.7;
-                onTop = true;                
+                onTop = true;
+                this.BringToFront();
+                this.Focus();
+                this.Activate();
             }
             else
             {
@@ -82,7 +87,7 @@ namespace SquadAdmin
                 this.Opacity = 1;
                 onTop = false;
                 this.SendToBack();
-            }            
+            }
         }
 
         void loadSettings()
@@ -181,6 +186,10 @@ namespace SquadAdmin
         {
             OpenChildForm(new Forms.FormBroadcast(), sender);
         }
+        private void button7_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Forms.FormHelp(), sender);
+        }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -189,6 +198,12 @@ namespace SquadAdmin
             Properties.Settings.Default.width = this.Width;
             Properties.Settings.Default.height = this.Height;
 
+            if (this.Location.X < 0 || this.Location.Y < 0)
+            {
+                Properties.Settings.Default.location_x = 0;
+                Properties.Settings.Default.location_y = 0;
+            }    
+        
             Properties.Settings.Default.Save();
 
             if (!ghk.Unregiser())
@@ -196,5 +211,6 @@ namespace SquadAdmin
             }
             
         }
+        
     }
 }
