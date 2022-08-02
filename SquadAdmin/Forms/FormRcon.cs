@@ -23,7 +23,9 @@ namespace SquadAdmin.Forms
             InitializeComponent();
         }
         private void FormRcon_Load(object sender, EventArgs e)
-        {
+        {   
+            setToolTips();
+
             if (!string.IsNullOrEmpty(SquadAdmin.Load.pastedText))
             {
                 fillListBox(SquadAdmin.Load.pastedText);
@@ -37,6 +39,7 @@ namespace SquadAdmin.Forms
                 ListViewItem item = new ListViewItem(msgReasons[i]);
                 cboReason.Items.Add(item.Text);
             }
+            cboReason.Items.Add("Outros");
 
             List<string> banLength = new List<string>();
             banLength.Add("Hora");
@@ -49,7 +52,20 @@ namespace SquadAdmin.Forms
             cboTime.SelectedIndex = 1;
 
             flagLoaded = true;
-        }            
+        }
+
+        private void setToolTips()
+        {
+            ToolTip toolTip = new ToolTip();
+
+            toolTip.SetToolTip(button2, "Digite listplayers no canal rcon no Discod e copie o resultado.");
+            toolTip.SetToolTip(txtFilter, "Digite para buscar o jogador.");
+            toolTip.SetToolTip(cboReason, "Selecione o motivo ou Outros para entrar com um motivo que não esteja listado");
+            toolTip.SetToolTip(opt1, "Marque esta opção para dar um kick no jogador.");
+            toolTip.SetToolTip(opt2, "Marque esta opção para banir um jogador.");
+            toolTip.SetToolTip(txtCommandRule, "Comando para enviar.");
+            toolTip.SetToolTip(listBox1, "Lista do jogadores do canal RCON. Clique no jogador para obter o SteamID");
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -107,7 +123,7 @@ namespace SquadAdmin.Forms
         private void listBox1_MouseClick(object sender, MouseEventArgs e)
         {
             splitText();
-            createAllCommand();
+            getReason();
         }
 
         private void splitText()
@@ -132,7 +148,7 @@ namespace SquadAdmin.Forms
         private void opt1_CheckedChanged(object sender, EventArgs e)
         {
             enableDisableFiedls();
-            createAllCommand();
+            getReason();
         }
 
         /// <summary>
@@ -141,7 +157,7 @@ namespace SquadAdmin.Forms
         private void opt2_CheckedChanged(object sender, EventArgs e)
         {
             enableDisableFiedls();
-            createAllCommand();
+            getReason();
         }
 
         private void enableDisableFiedls()
@@ -161,7 +177,7 @@ namespace SquadAdmin.Forms
 
         private void numUD_ValueChanged(object sender, EventArgs e)
         {
-            createAllCommand();
+            getReason();
         }
 
         /// <summary>
@@ -173,7 +189,7 @@ namespace SquadAdmin.Forms
             {
                 return;
             }
-            createAllCommand();
+            getReason();
         }
         
 
@@ -182,19 +198,49 @@ namespace SquadAdmin.Forms
         /// </summary>
         private void cboReason_SelectedIndexChanged(object sender, EventArgs e)
         {
-            createAllCommand();
+            getReason();
         }
 
-        private void createAllCommand()
+        private void getReason()
+        {   
+            string reason = cboReason.Text;
+
+            if (cboReason.Text == "Outros")
+            {
+                txtCustomReason.Enabled = true;
+                reason = txtCustomReason.Text;
+            } else
+            {
+                txtCustomReason.Enabled = false;
+                reason = cboReason.Text;
+            }
+
+            createCommand(reason);           
+        }
+
+        private void txtCustomReason_TextChanged(object sender, EventArgs e)
+        {
+            createCommand(txtCustomReason.Text);  
+        }
+
+        private void createCommand(string msg)
         {
             if (opt1.Checked)
             {
-                allCommand = "AdminKick " + steamID + " " + cboReason.Text;
+                allCommand = $"AdminKick {steamID} {msg}";
             }
             if (opt2.Checked)
             {
                 string banLength = setBanLength();
-                allCommand = "AdminBan " + steamID + " " + banLength + " " + cboReason.Text;
+                
+                if (banLength == "0")
+                {
+                    allCommand = $"AdminBan {steamID} {banLength} Banido permanentemente por: {msg}";
+                }
+                else
+                {
+                    allCommand = $"AdminBan {steamID} Banido temporariamente por: {msg} ({banLength})";
+                }               
             }
             txtCommandRule.Text = allCommand;
         }
@@ -240,5 +286,6 @@ namespace SquadAdmin.Forms
 
             return val;
         }
+        
     }
 }

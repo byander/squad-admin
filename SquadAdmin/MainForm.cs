@@ -43,7 +43,7 @@ namespace SquadAdmin
         {
             Version version = Assembly.GetExecutingAssembly().GetName().Version;
 
-            this.Text = "Squad Admin - v" + version.Major + "." + version.Minor;
+            this.Text = $"Squad Admin - v{version.Major}.{version.Minor}";
             if (loadData.checkSheet() == false)
             {
                 MessageBox.Show("Planilha contendo os dados não existe");

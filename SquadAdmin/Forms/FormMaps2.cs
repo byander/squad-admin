@@ -53,8 +53,6 @@ namespace SquadAdmin.Forms
 
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            Console.WriteLine(checkedListBox1.CheckedItems.Count);          
-
             if (e.NewValue == CheckState.Checked && checkedListBox1.CheckedItems.Count >= 3)
             {
                 e.NewValue = CheckState.Unchecked;
@@ -89,11 +87,11 @@ namespace SquadAdmin.Forms
 
             if (count == 1)
             {
-                sendCommand = "adminbroadcast " + map + " venceu! Obrigado a todos pelo voto e bom jogo!";
+                sendCommand = $"adminbroadcast {map} venceu! Obrigado a todos pelo voto e bom jogo!";
             }
             else
             {
-                sendCommand = "adminbroadcast Vote apenas uma vez: " + maps;
+                sendCommand = $"adminbroadcast Vote apenas uma vez: {maps}";
             }
 
             txtCommandRule.Text = sendCommand;
@@ -154,11 +152,11 @@ namespace SquadAdmin.Forms
 
             if (count == 1)
             {
-                sendCommand = "adminbroadcast Mapa " + map + " modo " + mode + " venceu! Obrigado a todos pelo voto e bom jogo!";
+                sendCommand = $"adminbroadcast Mapa {map} modo {mode} venceu! Obrigado a todos pelo voto e bom jogo!";
             }
             else
             {
-                sendCommand = "adminbroadcast Vote apenas uma vez no modo de jogo:" + modes;
+                sendCommand = $"adminbroadcast Vote apenas uma vez no modo de jogo: {modes}";
             }
 
             txtCommandRule.Text = sendCommand;

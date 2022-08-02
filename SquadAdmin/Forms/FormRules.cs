@@ -94,11 +94,11 @@ namespace SquadAdmin.Forms
             txtCommandRule.Text = "";
             if (opt1.Checked)
             {
-                sendCommand = "adminbroadcast " + listBox1.Text;
+                sendCommand = $"adminbroadcast {listBox1.Text}";
             }
             else if (opt2.Checked)
             {
-                sendCommand = "adminwarn " + SquadAdmin.Load.steamID + " " + listBox1.Text;
+                sendCommand = $"adminwarn {SquadAdmin.Load.steamID} {listBox1.Text}";
             }
            
             txtCommandRule.Text = sendCommand;

@@ -14,6 +14,7 @@ namespace SquadAdmin.Forms
     public partial class FormLayers : Form
     {
         string sendCommand;
+        string defaultCommand = "AdminSetNextLayer";
         string currentLayer = "";
         DataTable dataTable;
 
@@ -74,12 +75,41 @@ namespace SquadAdmin.Forms
                 layer = row.Cells["Rotation Name"].Value.ToString();
             }
 
-            sendCommand = "AdminSetNextLayer " + layer;
+            if (opt1.Checked)
+            {
+                defaultCommand = "AdminSetNextLayer";
+            }
+            else
+            {
+                defaultCommand = "AdminChangeLayer";
+            }
+
+            sendCommand = $"{defaultCommand} {layer}";
             txtCommandRule.Text = sendCommand;
             SquadAdmin.Load.lastLayerSended = sendCommand;
 
             Clipboard.SetText(sendCommand);
 
+        }
+
+        private void opt2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (opt2.Checked)
+            {
+                DialogResult dr = MessageBox.Show("Tem certeza que deseja mudar o mapa instantaneamente?",
+                "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                switch (dr)
+                {
+                    case DialogResult.Yes:
+                        defaultCommand = "AdminChangeLayer";
+                        break;
+                    case DialogResult.No:
+                        defaultCommand = "AdminSetNextLayer";
+                        break;
+                }
+            }
+
+            
         }
     }
 }

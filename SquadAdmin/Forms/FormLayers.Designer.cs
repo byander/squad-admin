@@ -35,12 +35,16 @@
             this.txtCommandRule = new System.Windows.Forms.TextBox();
             this.lblCommand = new System.Windows.Forms.Label();
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.opt2 = new System.Windows.Forms.RadioButton();
+            this.opt1 = new System.Windows.Forms.RadioButton();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.opt2);
+            this.panel2.Controls.Add(this.opt1);
             this.panel2.Controls.Add(this.cboMaps);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.lblRules);
@@ -48,7 +52,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 70);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 50);
+            this.panel2.Size = new System.Drawing.Size(800, 73);
             this.panel2.TabIndex = 15;
             // 
             // cboMaps
@@ -120,16 +124,47 @@
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv.Location = new System.Drawing.Point(0, 120);
+            this.dgv.Location = new System.Drawing.Point(0, 143);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgv.RowHeadersVisible = false;
             this.dgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgv.Size = new System.Drawing.Size(800, 330);
+            this.dgv.Size = new System.Drawing.Size(800, 307);
             this.dgv.TabIndex = 16;
             this.dgv.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_CellMouseClick);
+            // 
+            // opt2
+            // 
+            this.opt2.AutoSize = true;
+            this.opt2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.opt2.FlatAppearance.BorderSize = 0;
+            this.opt2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.opt2.ForeColor = System.Drawing.Color.White;
+            this.opt2.Location = new System.Drawing.Point(153, 46);
+            this.opt2.Name = "opt2";
+            this.opt2.Size = new System.Drawing.Size(272, 19);
+            this.opt2.TabIndex = 19;
+            this.opt2.Text = "Instantaneamente (Usar em casos especiais)";
+            this.opt2.UseVisualStyleBackColor = true;
+            this.opt2.CheckedChanged += new System.EventHandler(this.opt2_CheckedChanged);
+            // 
+            // opt1
+            // 
+            this.opt1.AutoSize = true;
+            this.opt1.Checked = true;
+            this.opt1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.opt1.FlatAppearance.BorderSize = 0;
+            this.opt1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.opt1.ForeColor = System.Drawing.Color.White;
+            this.opt1.Location = new System.Drawing.Point(15, 46);
+            this.opt1.Name = "opt1";
+            this.opt1.Size = new System.Drawing.Size(106, 19);
+            this.opt1.TabIndex = 18;
+            this.opt1.TabStop = true;
+            this.opt1.Text = "Próximo mapa";
+            this.opt1.UseVisualStyleBackColor = true;
             // 
             // FormLayers
             // 
@@ -145,6 +180,7 @@
             this.Text = "Map Layers";
             this.Load += new System.EventHandler(this.FormLayers_Load);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -159,5 +195,7 @@
         private System.Windows.Forms.Label lblCommand;
         private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.ComboBox cboMaps;
+        private System.Windows.Forms.RadioButton opt2;
+        private System.Windows.Forms.RadioButton opt1;
     }
 }

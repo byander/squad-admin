@@ -91,7 +91,7 @@ namespace SquadAdmin.Forms
         {
             txtCommandRule.Text = "";
           
-            sendCommand = "adminbroadcast " + listBox1.Text;
+            sendCommand = $"adminbroadcast {listBox1.Text}";
                   
             txtCommandRule.Text = sendCommand;
 
@@ -104,7 +104,6 @@ namespace SquadAdmin.Forms
             {
                 SquadAdmin.Load.lastRuleSended = txtCommandRule.Text;
             }
-            //Clipboard.SetText(txtCommandRule.Text);
         }
 
        

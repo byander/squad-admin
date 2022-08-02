@@ -30,6 +30,7 @@
         {
             this.lblCommand = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtCustomReason = new System.Windows.Forms.TextBox();
             this.numLength = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.cboTime = new System.Windows.Forms.ComboBox();
@@ -43,6 +44,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.txtCommandRule = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numLength)).BeginInit();
             this.SuspendLayout();
@@ -63,10 +66,13 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txtCustomReason);
             this.panel2.Controls.Add(this.numLength);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.cboTime);
             this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.cboReason);
             this.panel2.Controls.Add(this.opt2);
@@ -78,8 +84,21 @@
             this.panel2.Location = new System.Drawing.Point(0, 70);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(784, 124);
+            this.panel2.Size = new System.Drawing.Size(784, 144);
             this.panel2.TabIndex = 16;
+            // 
+            // txtCustomReason
+            // 
+            this.txtCustomReason.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.txtCustomReason.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCustomReason.Enabled = false;
+            this.txtCustomReason.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustomReason.ForeColor = System.Drawing.Color.White;
+            this.txtCustomReason.Location = new System.Drawing.Point(403, 84);
+            this.txtCustomReason.Name = "txtCustomReason";
+            this.txtCustomReason.Size = new System.Drawing.Size(305, 21);
+            this.txtCustomReason.TabIndex = 25;
+            this.txtCustomReason.TextChanged += new System.EventHandler(this.txtCustomReason_TextChanged);
             // 
             // numLength
             // 
@@ -139,9 +158,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(321, 55);
+            this.label2.Location = new System.Drawing.Point(342, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 21);
+            this.label2.Size = new System.Drawing.Size(55, 21);
             this.label2.TabIndex = 19;
             this.label2.Text = "Motivo:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -152,7 +171,7 @@
             this.cboReason.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboReason.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboReason.FormattingEnabled = true;
-            this.cboReason.Location = new System.Drawing.Point(324, 80);
+            this.cboReason.Location = new System.Drawing.Point(403, 56);
             this.cboReason.Name = "cboReason";
             this.cboReason.Size = new System.Drawing.Size(305, 23);
             this.cboReason.TabIndex = 18;
@@ -238,9 +257,9 @@
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox1.ForeColor = System.Drawing.Color.White;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(0, 194);
+            this.listBox1.Location = new System.Drawing.Point(0, 214);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(784, 367);
+            this.listBox1.Size = new System.Drawing.Size(784, 347);
             this.listBox1.TabIndex = 17;
             this.listBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseClick);
             // 
@@ -255,6 +274,31 @@
             this.txtCommandRule.Name = "txtCommandRule";
             this.txtCommandRule.Size = new System.Drawing.Size(784, 40);
             this.txtCommandRule.TabIndex = 18;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Location = new System.Drawing.Point(341, 84);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 21);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Outro:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label6
+            // 
+            this.label6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label6.Location = new System.Drawing.Point(0, 123);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(784, 21);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Lista do RCON";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FormRcon
             // 
@@ -294,5 +338,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cboTime;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCustomReason;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
     }
 }
