@@ -239,7 +239,7 @@ namespace SquadAdmin.Forms
                 }
                 else
                 {
-                    allCommand = $"AdminBan {steamID} Banido temporariamente por: {msg} ({banLength})";
+                    allCommand = $"AdminBan {steamID} {banLength} Banido temporariamente por: {msg} ({banLength})";
                 }               
             }
             txtCommandRule.Text = allCommand;

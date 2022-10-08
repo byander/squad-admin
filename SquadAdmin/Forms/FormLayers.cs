@@ -90,6 +90,7 @@ namespace SquadAdmin.Forms
 
             Clipboard.SetText(sendCommand);
 
+            opt1.Checked = true;
         }
 
         private void opt2_CheckedChanged(object sender, EventArgs e)
